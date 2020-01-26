@@ -1,7 +1,7 @@
 // nolint:lll
 // Generates the mygrpcadapter adapter's resource yaml. It contains the adapter's configuration, name, supported template
 // names (metric in this case), and whether it is session or no-session based.
-//go:generate $GOPATH/src/istio.io/istio/bin/mixer_codegen.sh -a mixer/adapter/mygrpcadapter/config/config.proto -x "-s=false -n mygrpcadapter -t authorization"
+//go:generate $REPO_ROOT/bin/mixer_codegen.sh -a mixer/adapter/mygrpcadapter/config/config.proto -x "-s=false -n mygrpcadapter -t authorization"
 
 package mygrpcadapter
 
@@ -17,7 +17,7 @@ import (
 	"istio.io/istio/mixer/adapter/mygrpcadapter/config"
 	"istio.io/istio/mixer/pkg/status"
 	"istio.io/istio/mixer/template/authorization"
-	"istio.io/istio/pkg/log"
+	"istio.io/pkg/log"
 )
 
 type (

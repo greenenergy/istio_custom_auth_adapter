@@ -15,7 +15,7 @@ spec:
   selector:
     app: mygrpcadapter
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mygrpcadapter
@@ -23,6 +23,9 @@ metadata:
   labels:
     app: mygrpcadapter
 spec:
+  selector:
+    matchLabels:
+      app: mygrpcadapter
   replicas: 1
   template:
     metadata:
@@ -34,7 +37,7 @@ spec:
     spec:
       containers:
       - name: mygrpcadapter
-        image: salrashid123/mygrpcadapter:latest
-        imagePullPolicy: Always
+        image: mygrpcadapter:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 44225
